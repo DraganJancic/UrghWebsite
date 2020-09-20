@@ -1,0 +1,24 @@
+@import '../components/global-styles/layout-mixins';
+@import '../components/global-styles/font-families';
+@import '../components/global-styles/colors';
+
+.socials-component {
+  width: 100%;
+  height: auto;
+  @include flexRowCenter();
+  a {
+    @include flexRowCenter();
+    width: 56px;
+    height: 56px;
+    margin-right: 16px;
+    // background-color: rgba(;
+    background-color: rgba(98,155,249,0.1);
+    border-radius: 50%;
+    svg {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      opacity: 1;
+    }
+  }
+}

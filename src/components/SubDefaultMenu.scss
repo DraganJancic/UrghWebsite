@@ -1,0 +1,64 @@
+@import '../components/global-styles/layout-mixins';
+@import '../components/global-styles/media-mixins';
+@import '../components/global-styles/font-families';
+@import '../components/global-styles/colors';
+
+.default-sub-menu {
+  position: relative;
+  opacity: 0;
+  max-height: 0;
+  transition:  0.4s ease-out;
+  z-index: -10;
+  &--open {
+    max-height: 500px;
+    opacity: 1;
+    transition:  0.4s ease-in;
+    margin-top: 17px;
+    z-index: 10;
+
+  }
+  .mega-child-menu {
+    margin-top: 0px;
+    padding-left: 10px;
+  }
+}
+
+
+@include desktop-lowres() {
+  .default-sub-menu {
+    opacity: 1;
+    min-width: 100%;
+    min-height: 100px;
+    max-height: fit-content;
+    height: fit-content;
+    padding: 42px 38px 20px;
+    top: 200px;
+    background-color: $white;;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px 0 rgba(98, 155, 249, 0.2);
+    visibility: hidden;
+    opacity: 0;
+    transition: top ease 300ms, opacity ease 300ms;
+    &--open {
+      margin-top: 0;
+    }
+
+    a {
+      width: 100%;
+    }
+  }
+  .mega-child-menu{ 
+    position: relative;
+    min-width: 160px;
+  }
+  .default-menu {
+    &:hover {
+      .default-sub-menu {
+        top: 108px;
+        opacity: 1;
+        visibility: visible;
+        z-index: 10;
+      }
+    }
+  }
+}

@@ -1,0 +1,110 @@
+@import './global-styles/colors';
+@import './global-styles/font-families';
+@import './global-styles/layout-mixins';
+@import './global-styles/media-mixins';
+
+.members {
+  @include flexColumnCenter();
+  padding-bottom: 20px;
+
+  &__wrapper {
+    @include flexColumnCenter();
+  }
+  &__title {
+    margin-bottom: 40px;
+  }
+  &__cards {
+    @include flexColumnCenter();
+    width: 100%;
+  }
+  &__card {
+    width: 100%;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+
+    &-img-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    &-img {
+      width: 312px;
+      border-radius: 12px;
+      // Override gatsby-image styles
+      picture {
+        img {
+          object-fit: contain !important;
+        }
+      }
+    }
+    &-info{
+      @include flexColumnCenter();
+    }
+    &-name {
+      margin-bottom: 5px;
+      text-align: center;
+    }
+    &-description{
+      padding-bottom: 20px;
+      text-align: center;
+    }
+    p.small {
+      line-height: 1;
+    }
+    &-email {
+      @include flexRowCenter();
+      margin-top: auto;
+      
+      a { 
+        text-decoration: none;
+      }
+      &--letter {
+        @include email-icon('../images/email-orange.svg');
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+@include tablet() {
+  .members {
+    padding-bottom: 40px;
+
+    &__cards {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: stretch;
+      justify-content: space-around;
+    }
+    &__card {
+      max-width: calc(50% - 10px);
+      padding-bottom: 50px;
+    }
+  }
+}
+
+@include desktop-lowres() {
+  .members {
+    &__cards {
+      justify-content: space-between;
+    }
+    &__card {
+      width: calc(25% - 10px);
+
+      &-img {
+        height: 218px;
+      }
+    }
+  }
+}
+
+@include desktop() {
+  .members {
+    &__card {
+      &-img {
+        height: 290px;
+      }
+    }
+  }
+}

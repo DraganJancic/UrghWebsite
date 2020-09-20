@@ -1,0 +1,85 @@
+@import './global-styles/layout-mixins';
+@import './global-styles/media-mixins';
+@import './global-styles/colors';
+@import './global-styles/font-families';
+
+
+
+
+.form-submitted {
+  padding: 40px 24px 60px;
+
+  &__inner-wrapper {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__image {
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+
+  &__title {
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 1.42;
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    text-align: center;
+    
+    a {
+      color: $blue;
+      text-decoration: underline;
+    }
+  }
+
+  &__link {
+    @include ctaWithPseudo('../images/path.svg');
+    width: auto;
+    padding-right: 90px;
+  }
+}
+
+
+@include tablet() {
+  .form-submitted {
+    padding: 80px 54px;
+  
+    &__image {
+      margin-bottom: 25px;
+    }
+  
+    &__title {
+      max-width: 650px;
+      font-size: 28px;
+      line-height: 1.36;
+    }
+  
+    &__text {
+      max-width: 488px;
+    }
+  }
+}
+
+@include desktop-lowres() {
+  .form-submitted {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  
+    &__image {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@include desktop() {
+  .form-submitted {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+}

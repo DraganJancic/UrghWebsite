@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="127px" height="115px" viewBox="0 0 127 115" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 10@1.5x</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="90" height="115"></rect>
+    </defs>
+    <g id="Desktop-(1440px)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-10">
+            <circle id="Oval-Copy-7" fill="#629BF9" transform="translate(38.000000, 33.000000) rotate(-180.000000) translate(-38.000000, -33.000000) " cx="38" cy="33" r="24"></circle>
+            <circle id="Oval-Copy-8" fill="#629BF9" transform="translate(10.500000, 91.500000) rotate(-180.000000) translate(-10.500000, -91.500000) " cx="10.5" cy="91.5" r="10.5"></circle>
+            <g id="Oval" transform="translate(82.000000, 57.500000) rotate(-180.000000) translate(-82.000000, -57.500000) translate(37.000000, 0.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Mask"></g>
+                <ellipse fill="#629BF9" mask="url(#mask-2)" cx="3.64864865" cy="31.1795775" rx="65.2702703" ry="65.193662"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

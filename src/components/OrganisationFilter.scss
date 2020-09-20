@@ -1,0 +1,128 @@
+@import './global-styles/media-mixins';
+@import './global-styles/font-families';
+@import './global-styles/colors';
+@import './global-styles/layout-mixins';
+
+
+.organisations {
+  &__filter {
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    height: 70px;
+    box-shadow: 0 22px 36px 0 rgba(98, 155, 249, 0.12);
+    margin-bottom: 100px;
+    &-wrap {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      cursor: pointer;
+      z-index: 100;
+      &:before {
+        @include pseudo();
+        @include email-icon('../images/organizations-blue.svg');
+        z-index: 1;
+      }
+      &:after {
+        @include pseudo();
+        @include arrowDown();
+        border-width: 0 2px 2px 0;
+        right: 24px;
+        top: 30px;
+        transition: 0.3s;
+      }
+      &--open {
+        &:after {
+          transform: rotate(225deg);
+        }
+      }
+    }
+  }
+  &__menu {
+    position: absolute;
+    max-height: 70px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    border-radius: 8px;
+    box-shadow: 0 22px 36px 0 rgba(98, 155, 249, 0.12);
+    border: solid 1px var(--light-periwinkle);
+    background-color: var(--white);
+    overflow: hidden;
+    transition: 0.5s;
+    z-index: 100;
+    &--open {
+      height: auto;
+      max-height: 600px;
+    }
+    &-item {
+      position: relative;
+      height: 70px;
+      width: 100%;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      background-color: $white;
+      font-family: $titleFont;
+      font-weight: normal;
+      font-size: 16px;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: $primary;
+      background-color: $white;
+      &:after {
+        @include pseudo();
+        width: 90%;
+        height: 1px;
+        background-color: $border-color;
+        margin: 0 auto;
+        bottom: -1px;
+        z-index: 10;
+      }
+      &:last-child {
+        &:after {
+          display: none;
+        }
+      }
+      &:hover {
+        background-color: $white-dark;
+      }
+      &-selected {
+        min-height: 70px;
+        align-items: center;
+        font-weight: bold;
+      }
+      &--active {
+        font-weight: bold;
+
+      }
+    }
+  }
+}
+
+@include tablet() {
+  .organisations {
+    &__filter {
+      &-wrap {
+        &:before {
+          @include pseudo();
+          @include email-icon('../images/organizations-blue.svg', 24px, 24px);
+          left: 30px;
+          top: 22px;
+          z-index: 110;
+        }
+      }
+    }
+    &__menu {
+      &-item {
+        padding-left: 75px;
+        &:after {
+          left: 30px;
+        }
+      }
+    }
+  }
+}

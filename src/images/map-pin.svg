@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="58" height="59" viewBox="0 0 58 59">
+    <defs>
+        <filter id="prefix__a" width="143.8%" height="143.8%" x="-21.9%" y="-17.3%" filterUnits="objectBoundingBox">
+            <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="shadowSpreadOuter1"/>
+            <feOffset dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2.5"/>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17340472 0"/>
+        </filter>
+        <circle id="prefix__b" cx="29.24" cy="28.552" r="21.672"/>
+        <path id="prefix__c" d="M0 0.012L9.5 0.012 9.5 19.594 0 19.594z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <circle cx="28.896" cy="28.896" r="28.896" fill="#629BF9" opacity=".2"/>
+        <use fill="#000" filter="url(#prefix__a)" xlink:href="#prefix__b"/>
+        <use fill="#629BF9" stroke="#FFF" stroke-width="2" xlink:href="#prefix__b"/>
+        <g>
+            <path fill="#FFF" d="M8.575 4.202c-.597-.236-1.647-.132-2.341.156-.558.205-1.078.496-1.547.86-.29.218-.474-.327-.912 0L3.45 4.78c.438-.324-.03-.658.26-.872.604-.447.803-.505 1.336-1.154.474-.576.878-1.556.826-2.196-.033-.413.386-.737.604-.447l2.703 3.644c.217.29-.214.6-.604.447" transform="translate(24.768 15.824)"/>
+            <g transform="translate(24.768 15.824) translate(0 4.609)">
+                <mask id="prefix__d" fill="#fff">
+                    <use xlink:href="#prefix__c"/>
+                </mask>
+                <path fill="#FFF" d="M6.892 7.115v9.332c0 .704.132 1.194.395 1.472.263.276 1.148.414 1.974.414h.114v1.261H0v-1.26c.906 0 1.696-.127 1.993-.375.297-.25.444-.753.444-1.512V7.115c0-.732-.14-1.23-.42-1.49C1.737 5.363.938 5.231 0 5.231V4.62c0-.775.729-.824 1.34-.965.515-.119.68-.293.68-.627 0-.315-.097-.34-.385-.533-.043-.03-.469-.184-.527-.22C.726 2.027.163 1.678.086 1.24.022.882.19.606.57.315c.296-.248.685-.352 1.065-.281.273.131.52.303.738.514.425.38.989 1.218 1.02 1.488.005.113-.099.196-.206.282-.147.119-.349.281-.156.557l.514.68.03.04.053-.013c.272-.064.536-.171.778-.315.186-.101.395-.16.606-.169.175.013.346.062.502.141.422.193.873.319 1.332.364.486.028 1.258-.098 1.353-.202.126-.137-.312-.597-.769-.936-.128-.098-.253-.19-.346-.267-.186-.138-.388-.25-.6-.337-.162-.088-.14-.15-.186-.312-.052-.171.156-.49.25-.649.071-.122.206-.196.347-.193.098-.009.134.015.257.095.07.046.383.315.41.432.01.061.012.12.006.18-.015.104 0 .209.04.307.08.11.19.192.315.238l.034.019c.328.22.643.456.943.707.343.257.56.646.6 1.072 0 1.209-2.608-.359-2.608 3.358" mask="url(#prefix__d)"/>
+            </g>
+        </g>
+    </g>
+</svg>

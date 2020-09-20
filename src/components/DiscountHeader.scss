@@ -1,0 +1,181 @@
+@import './global-styles/media-mixins';
+@import './global-styles/font-families';
+@import './global-styles/colors';
+@import './global-styles/layout-mixins';
+
+.discount-page {
+  padding-bottom: 60px;
+  background-color: $grey-light;
+  &__header {
+    height: 175px;
+    background-color: $primary;
+    color: $white;
+    padding: 60px 0px 0;
+    h2 {
+      color: $white;
+    }
+    &-filter {
+      position: relative;
+      max-width: 100%;
+      max-height: 70px;
+      height: 100%;
+      bottom: -25px;
+      display: flex;
+      flex-flow: column;
+      background-color: $white;
+      color: $primary;
+      border-radius: 8px;
+      border: solid 1px $border-color;
+      overflow: hidden;
+      transition: 0.4s;
+      z-index: 10;
+      &:after {
+        @include pseudo();
+        @include arrowDown();
+        border-width: 0 2px 2px 0;
+        right: 24px;
+        top: 30px;
+        transition: 0.3s;
+      }
+      &--open {
+        height: auto; 
+        max-height: 700px;
+        &:after {
+          transform: rotate(225deg);
+        }
+      }
+      &-item {
+        position: relative;
+        width: 100%;
+        padding: 23px;
+        display: flex;
+        font-family: $titleFont;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 1.5;
+        color: $primary;
+        cursor: pointer;
+        img {
+          border-radius: 12px;
+        }
+      }
+    }
+  }
+  &__list {
+    padding-top: 75px;
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+@include tablet() {
+  .discount-page {
+    &__header {
+      height: 246px;
+      padding: 100px 0px 0; 
+      &-filter {
+        bottom: -30px;
+        min-height: 90px;
+        &:after {
+          top: 40px;
+        }
+        &-item {
+          position: relative;
+          min-height: 90px;
+          max-height: 90px;
+          padding: 0 74px;
+          align-items: center;
+          &:before {
+            @include pseudo();
+            left: 35px;
+            top: 35px;
+            filter: grayscale(100%);
+          }
+          &--all,
+          &--alles {
+            &:before {
+              @include pseudo-icon('../images/categories-blue.svg');
+            }
+          }
+          &--shopping,
+          &--verslun {
+            &:before {
+              @include pseudo-icon('../images/shop.svg');
+            }
+          }
+          &--other,
+          &--annað {
+            &:before {
+              @include pseudo-icon('../images/discounts.svg');
+            }
+          }
+          &--health,
+          &--heilsa {
+            &:before {
+              @include pseudo-icon('../images/health.svg');
+            }
+          }
+          &--food,
+          &--matur {
+            &:before {
+              @include pseudo-icon('../images/drink.svg');
+            }
+          }
+          &.active {
+            &:before {
+              filter: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include desktop-lowres() {
+  .discount-page {
+    &__header {
+      padding: 111px 140px 0;
+      &-wrapper {
+        max-width: 750px;
+        margin: 0 !important;
+      }
+      &-filter {
+        max-width: 748px;
+      }
+    }
+    
+    &__list {
+      display: flex;
+      justify-content: space-between;
+      padding: 155px 0px 0 50px;
+      margin: 0 !important;
+      &-wrapper {
+        max-width: 750px;
+        display: flex;
+        flex-flow: column;
+        align-items: flex-end;
+      }
+    }
+  }
+}
+
+@include desktop() {
+  .discount-page {
+    &__header {
+      max-height: 396px;
+      &-wrapper {
+        max-width: 880px;
+        height: 100%;
+      }
+      &-filter {
+        bottom: -20px;
+      }
+    }
+    &__list-wrapper {
+      max-width: 880px;
+
+    }
+  }
+}

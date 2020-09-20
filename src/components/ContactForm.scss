@@ -1,0 +1,111 @@
+@import './global-styles/colors';
+@import './global-styles/font-families';
+@import './global-styles/media-mixins';
+
+.contact-form {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 27px 24px 30px;
+  background-color: $white;
+  border-radius: 12px;
+  box-shadow: 0 22px 36px 0 rgba(98, 155, 249, 0.12);
+
+  .form-group {
+    margin-bottom: 28px;
+  }
+
+  &__header {
+    margin-bottom: 40px;
+    &-title {
+      margin-bottom: 6px;
+    }
+
+    &-subtitle {
+      font-size: 14px;
+      line-height: 1.71;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: none;
+    }
+  }
+
+  &__additional-text {
+    margin-bottom: 20px;
+    font-family: $textFont;
+    font-size: 14px;
+    line-height: 1.71;
+    color: $body-copy;
+  }
+
+  &__submit-btn {
+    display: block;
+    height: 60px;
+    width: 100%;
+    font-family: $textFont;
+    font-size: 16px;
+    color: $white;
+    background-color: $blue;
+    border: none;
+    outline: none;
+    border-radius: 33px;
+
+    img {
+      width: 22px;
+      height: auto;
+      animation-name: spin;
+      animation-duration: 1000ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+@include tablet() {
+  .contact-form {
+    max-width: 488px;
+    margin: 0 auto;
+    padding: 54px 48px 40px;
+
+    &--contact {
+      padding-top: 50px;
+    }
+  
+    .form-group {
+      margin-bottom: 32px;
+    }
+  
+    &__header {
+      margin-bottom: 50px;
+      width: 270px;
+      &-title {
+        margin-bottom: 7px;
+      }
+  
+      img {
+        display: block;
+        width: 146px;
+        height: auto;
+      }
+    }
+  
+    &__submit-btn {
+      width: 190px;
+    }
+  }
+}

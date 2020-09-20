@@ -1,0 +1,358 @@
+/****************
+* Layout mixins *
+****************/
+
+@mixin centerX () {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+@mixin centerY () {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+@mixin centerXY () {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin resetCenterX () {
+	position: static;
+	left: auto;
+	transform: translateX(0%);
+}
+
+@mixin resetCenterY () {
+	position: static;
+	top: auto;
+	transform: translateY(0%);
+}
+
+@mixin resetCenterXY () {
+	position: static;
+	top: auto;
+	left: auto;
+	transform: translate(0%, 0%);
+}
+
+@mixin absoluteFullSize() {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+@mixin pseudo($position: absolute, $display: block, $content: '') {
+	position: $position;
+	display: $display;
+	content: $content;
+}
+
+@mixin bgImage($size: cover) {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: $size;
+}
+
+@mixin css-triangle($color, $direction, $size: 6px, $position: absolute, $round: false) {
+	@include pseudo( $position );
+	width: 0;
+	height: 0;
+	@if $round {
+		border-radius: 3px;
+	}
+	@if $direction == down {
+		border-left: $size solid transparent;
+		border-right: $size solid transparent;
+		border-top: $size solid $color;
+		margin-top: 0 - round($size / 2.5);
+	} @else if $direction == up {
+		border-left: $size solid transparent;
+		border-right: $size solid transparent;
+		border-bottom: $size solid $color;
+		margin-bottom: 0 - round($size / 2.5);
+	} @else if $direction == right {
+		border-top: $size solid transparent;
+		border-bottom: $size solid transparent;
+		border-left: $size solid $color;
+		margin-right: -$size;
+	} @else if $direction == left {
+		border-top: $size solid transparent;
+		border-bottom: $size solid transparent;
+		border-right: $size solid $color;
+		margin-left: -$size;
+	}
+}
+
+@mixin material-shadow( $z-depth: 1, $strength: 1, $color: black ) {
+	@if $z-depth == 1 {
+		box-shadow: 0 1px 3px rgba($color, $strength * 0.14),
+			0 1px 2px rgba($color, $strength * 0.24);
+	}
+	@if $z-depth == 2 {
+		box-shadow: 0 3px 6px rgba($color, $strength * 0.16),
+			0 3px 6px rgba($color, $strength * 0.23);
+	}
+	@if $z-depth == 3 {
+		box-shadow: 0 10px 20px rgba($color, $strength * 0.19),
+			0 6px 6px rgba($color, $strength * 0.23);
+	}
+	@if $z-depth == 4 {
+		box-shadow: 0 15px 30px rgba($color, $strength * 0.25),
+			0 10px 10px rgba($color, $strength * 0.22);
+	}
+	@if $z-depth == 5 {
+		box-shadow: 0 20px 40px rgba($color, $strength * 0.3),
+			0 15px 12px rgba($color, $strength * 0.22);
+	}
+	@if ($z-depth < 1) or ($z-depth > 5) {
+		@warn "$z-depth must be between 1 and 5";
+	}
+}
+
+/*
+* Mixin for email icon
+* We can use blue, orange or gray email icon
+* Example: @include email-icon('../images/email-grey.svg');
+* 
+*/
+@mixin email-icon($url, $width: 16px, $height: 16px) {
+  @include flexRowCenter();
+  width: $width;
+  height: $height;
+  @include bgImage();
+  background-image: url($url);
+}
+
+@mixin pseudo-icon($url, $width: 16px, $height: 16px) {
+  @include flexRowCenter();
+  width: $width;
+  height: $height;
+  @include bgImage();
+  background-image: url($url);
+}
+
+@mixin flexRowCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flexRowSpaceBetween() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin flexColumnCenter {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+* Mixin for email icon
+* We can use blue, orange or gray email icon
+* Example: @include email-icon('../images/email-grey.svg');
+* 
+*/
+@mixin email-icon($url, $width: 16px, $height: 16px) {
+  width: $width;
+  height: $height;
+  @include bgImage();
+  background-image: url($url);
+}
+@mixin phone-icon($url, $width: 16px, $height: 16px) {
+  width: $width;
+  height: $height;
+  @include bgImage();
+  background-image: url($url);
+}
+
+@mixin contentWrapper {
+  width: 100%;
+  padding: 0 24px;
+  @include tablet() {
+    padding: 0 54px;
+  }
+  @include desktop-lowres() {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    max-width: 1000px;
+  }
+  @include desktop() {
+    max-width: 1200px;
+    // padding: 0 54px;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+// ********* CTA *************
+
+
+@mixin ctaWithPseudo($imagePath) {
+  position: relative;
+  width: 150px;
+  height: 60px;
+  padding: 0 26px;
+  @include flexRowSpaceBetween();
+  border-radius: 33px;
+  font-family: $textFont;
+  color: $white;
+  background-color: $blue;
+  border-radius: 33px;
+  border: 0px;
+  box-shadow: 0 8px 32px 0 rgba(98, 155, 249, 0.2);
+  cursor: pointer;
+  transition: 0.5s;
+  &:after {
+    @include pseudo();
+    width: 20px;
+    height: 13px;
+    right: 26px;
+    background-image: url($imagePath);
+    background-repeat: no-repeat;
+    object-fit: contain;
+  }
+  &:before {
+    @include pseudo();
+    visibility: hidden;
+    width: 20px;
+    height: 13px;
+    right: 52px;
+    background-image: url($imagePath);
+    background-repeat: no-repeat;
+    object-fit: contain;
+  }
+  &:hover {
+    box-shadow: 0 8px 32px 0 rgba(98, 155, 249, 0.2);
+    &::after {
+      transition: transform 0.5s, visibility 0.2s;
+      transform: translate(26px);
+      visibility: hidden;
+    }
+    &::before {
+      transition: transform 0.4s, visibility 1s;
+      transition-delay: 0.4s;
+      transform: translate(26px);
+      visibility: visible;
+    }
+  }
+}
+
+@mixin ctaSubmit {
+  width: 190px;
+  height: 60px;
+  border-radius: 33px;
+  font-family: $textFont;
+  color: $white;
+  background-color: $blue;
+  @include flexRowCenter();
+  transition: 0.5s;
+  &:hover {
+    box-shadow: 0 8px 32px 0 rgba(98, 155, 249, 0.2);
+  }
+}
+
+@mixin ctaReport {
+  width: 137px;
+  height: 48px;
+  border-radius: 38px;
+  font-family: $textFont;
+  color: $white;
+  background-color: $blue;
+  @include flexRowCenter();
+}
+
+@mixin readMoreLink($imagePath, $backgroundColor) {
+  position: relative;
+  width: fit-content;
+  padding-right: 5px;
+  font-family: $textFont;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1;
+  color: $primary;
+  background-color: $backgroundColor;
+  text-decoration: none;
+  z-index: 50;
+  cursor: pointer;
+  &:after {
+    @include pseudo();
+    width: 20px;
+    height: 13px;
+    right: -32px;
+    top: 2px;
+    background-image: url($imagePath);
+    object-fit: contain;
+    background-repeat: no-repeat;
+  }
+  &:before {
+    @include pseudo();
+    width: 20px;
+    height: 13px;
+    right: 0px;
+    top: 2px;
+    background-image: url($imagePath);
+    object-fit: contain;
+    background-repeat: no-repeat;
+    visibility: hidden;
+    z-index: -1;
+  }
+  &:hover {
+    &::after {
+      transition: transform 0.5s, visibility 0.2s;
+      transform: translate(26px);
+      visibility: hidden;
+    }
+    &::before {
+      transition: transform 0.4s, visibility 1s;
+      transition-delay: 0.4s;
+      transform: translate(32px);
+      visibility: visible;
+    }
+  }
+}
+
+@mixin redirectCta($url) {
+  position: relative;
+  width: 241px;
+  height: 64px;
+  font-family: $textFont;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.38;
+  letter-spacing: normal;
+  color: $primary;
+  border-radius: 8px;
+  border: solid 1px $border-color;
+  @include flexRowCenter();
+  cursor: pointer;
+  transition: 0.5s;
+  &:before {
+    @include pseudo();
+    width: 26px;
+    height: 26px;
+    top: 19px;
+    left: 26px;
+    @include bgImage();
+    background-image: url($url);
+  }
+  &:hover {
+    box-shadow: 0 8px 32px 0 rgba(98, 155, 249, 0.2);
+  }
+}
+
+@mixin arrowDown($color: $primary) {
+  border: solid $color;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+}
