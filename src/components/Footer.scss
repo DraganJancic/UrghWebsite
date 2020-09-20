@@ -1,0 +1,38 @@
+@import './global-styles/media-mixins';
+@import './global-styles/colors';
+
+
+.footer {
+  background: $primary;
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+  }
+}
+
+@include tablet() {
+  .footer{
+    &__wrapper {
+      padding-top: 70px;
+    }
+  }
+}
+
+@media screen and (min-width: 703px) {
+  .footer {
+    &__wrapper {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+}
+
+@include desktop() {
+  .footer {
+    &__wrapper {
+      flex-wrap: nowrap;
+    }
+  }
+}

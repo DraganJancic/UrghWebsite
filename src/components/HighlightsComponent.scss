@@ -1,0 +1,117 @@
+@import './global-styles/media-mixins';
+@import './global-styles/colors';
+@import './global-styles/layout-mixins';
+
+.highlights {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background: $grey-light;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+    border-radius: 12px;
+    box-shadow: 0 22px 36px 0 rgba(98, 155, 249, 0.12);
+  }
+  &__image {
+    width: 100% !important;
+    height: 180px !important;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  &__svg {
+    display: none;
+  }
+  &__headlines {
+    max-width: 550px;
+    padding: 0 30px 50px 30px;
+    &-title {
+      margin: 26px 0 0 0;
+    }
+    &-subtitle {
+      margin: 12px 0 50px 0;
+    }
+  }
+}
+
+@include tablet() {
+  .highlights {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    &__wrapper {
+      position: relative;
+    }
+    &__image {
+      height: 280px !important;
+    }
+    &__svg {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: block;
+      border-bottom-right-radius: 12px;
+    }
+    &__headlines {
+      padding: 0 60px 80px 60px;
+      &-title {
+        margin: 50px 0 0 0;
+      }
+      &-subtitle {
+        margin: 15px 0 65px 0;
+      }
+    }
+  }
+}
+
+@include desktop-lowres() {
+  .content-wrapper {
+    margin: 0 auto;
+  }
+
+  .highlights {
+    padding-bottom: 80px;
+    padding-top: 80px;
+    &__wrapper {
+      flex-direction: row-reverse;
+      min-height: 450px;
+    }
+    &__image {
+      width: 450px !important;
+      height: 100% !important;
+      border-bottom-right-radius: 12px;
+      border-top-left-radius: 0;
+    }
+    &__svg {
+      right: 45%;
+      border-bottom-right-radius: 0;
+    }
+    &__headlines {
+      box-sizing: unset;
+      width: 55%;
+      padding: 70px 80px 80px 60px;
+      &-title {
+        margin: 0;
+      }
+    }
+  }
+}
+
+@include desktop() {
+  .highlights {
+    padding-bottom: 100px;
+    padding-top: 100px;
+    &__image {
+      width: 540px !important;
+    }
+    &__headlines {
+      padding: 90px 140px 105px 80px;
+      &-title {
+        margin: 0;
+      }
+      &-subtitle {
+        margin: 15px 0 75px 0;
+      }
+    }
+  }
+}

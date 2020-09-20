@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="88" height="120" viewBox="0 0 88 120">
+    <defs>
+        <filter id="3b9gwnt8pa" width="201.3%" height="203.9%" x="-48%" y="-29.6%" filterUnits="objectBoundingBox">
+            <feMorphology in="SourceAlpha" operator="dilate" radius="2.8" result="shadowSpreadOuter1"/>
+            <feOffset dx="1" dy="9" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="4"/>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.384313725 0 0 0 0 0.607843137 0 0 0 0 0.976470588 0 0 0 0.163570804 0"/>
+        </filter>
+        <circle id="5jjxoq8cxb" cx="19.059" cy="19.059" r="19.059"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g fill="#D0D6DF" fill-rule="nonzero">
+                    <g>
+                        <path d="M55.518 22.207H29.61c-1.024 0-1.85-.827-1.85-1.85 0-1.024.826-1.85 1.85-1.85h25.908c1.024 0 1.85.826 1.85 1.85 0 1.023-.826 1.85-1.85 1.85zM55.518 37.012H29.61c-1.024 0-1.85-.827-1.85-1.85 0-1.024.826-1.851 1.85-1.851h25.908c1.024 0 1.85.827 1.85 1.85 0 1.024-.826 1.851-1.85 1.851z" transform="translate(-136 -100) translate(136 100) translate(1.294 1.294)"/>
+                        <path d="M18.506 46.08V3.701h48.116V46.08l17.026-9.253-13.325-9.993V1.85c0-1.11-.74-1.851-1.85-1.851H16.655c-1.11 0-1.85.74-1.85 1.85v25.354L1.48 36.827l17.026 9.253z" transform="translate(-136 -100) translate(136 100) translate(1.294 1.294)"/>
+                        <path d="M43.49 62.736c-.37.185-.556.185-.926.185s-.555 0-.925-.185L0 40.343v41.084c0 2.045 1.656 3.701 3.701 3.701h77.726c2.045 0 3.701-1.656 3.701-3.701V40.343L43.489 62.736z" transform="translate(-136 -100) translate(136 100) translate(1.294 1.294)"/>
+                    </g>
+                </g>
+                <g>
+                    <g>
+                        <g stroke-linejoin="round" transform="translate(-136 -100) translate(136 100) translate(20 57) translate(4.941 4.941)">
+                            <use fill="#000" filter="url(#3b9gwnt8pa)" xlink:href="#5jjxoq8cxb"/>
+                            <use fill="#FFF" stroke="#FFF" stroke-width="5.6" xlink:href="#5jjxoq8cxb"/>
+                        </g>
+                        <path fill="#629BF9" d="M19.059 0c10.526 0 19.059 8.533 19.059 19.059 0 10.526-8.533 19.059-19.06 19.059C8.534 38.118 0 29.585 0 19.058 0 8.534 8.533 0 19.059 0zm6.437 11.308l-9.6 9.6-3.84-3.84-2.88 2.88 6.72 6.72 12.48-12.48-2.88-2.88z" transform="translate(-136 -100) translate(136 100) translate(20 57) translate(4.941 4.941)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

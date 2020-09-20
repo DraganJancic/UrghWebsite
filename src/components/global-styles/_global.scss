@@ -1,0 +1,251 @@
+@import './font-families';
+@import './colors';
+@import './media-mixins';
+@import './layout-mixins';
+@import './normalize';
+@import './reset';
+
+//Header is fixed so every page has to have padding top
+main {
+  overflow: hidden;
+}
+body {
+  padding-top: 60px;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-family: $titleFont;
+  font-weight: 700;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  color: $primary;
+}
+h1 {
+  font-size: 36px;
+  line-height: 1.22;
+}
+h2 {
+  font-size: 28px;
+  line-height: 1.36;
+}
+h3 {
+  font-size: 24px;
+  line-height: 1.42;
+}
+h4 {
+  font-size: 24px;
+  line-height: 1.5;
+}
+h5 {
+  font-size: 20px;
+  line-height: 1.6;
+}
+h6 {
+  font-size: 16px;
+  line-height: 1.5;
+}
+p, a {
+  margin: 0;
+  padding: 0;
+  font-family: $textFont;
+  font-size: 16px;
+  line-height: 1.88;
+  color: $body-copy;
+}
+p.subtitle {
+  font-family: $titleFont;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1;
+  color: $body-copy;
+}
+p.strong {
+  font-family: $textFont;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  color: $primary;
+}
+p.small {
+  font-family: $textFont;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  color: $body-copy;
+}
+p.italic {
+  font-family: $textFont;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.43;
+  color: $body-copy;
+}
+p.label {
+  font-family: $textFont;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  color: $primary;
+}
+p.input-label {
+  font-family: $textFont;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  color: $primary;
+}
+blockquote {
+  margin: 0 0 40px 0;
+  padding-left: 20px;
+  // quotes: "“" "”" ;
+  quotes: "\201C" "\201D";
+  border-left: 5px solid $blue;
+  p {
+    font-family: $textFont;
+    font-size: 16px;
+    line-height: 1.88;
+    font-weight: 500;
+    font-style: italic;
+    color: $primary;
+
+    &::before {
+      content: open-quote;
+    }
+    &::after {
+      content: close-quote;
+    }
+  }
+}
+p.popins {
+  font-family: $titleFont;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  color: $body-copy;
+}
+span.small {
+  font-family: $textFont;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  color: $white;
+}
+
+.content-wrapper {
+  @include contentWrapper();
+}
+
+// ********* CTA *************
+
+.cta-with-pseudo {
+  @include ctaWithPseudo('../../images/path.svg');
+}
+
+.cta-submit {
+  @include ctaSubmit();
+}
+
+.cta-report {
+  @include ctaReport();
+}
+
+.read-more-link {
+  &--dark {
+    @include readMoreLink('../../images/path-blue.svg', $grey-light);
+  }
+  &--light {
+    @include readMoreLink('../../images/path-blue.svg', $white);
+  }
+}
+.redirect-cta {
+  &--flag {
+    @include redirectCta('../../images/flag-colour.svg');
+  }
+}
+
+@include tablet() {
+  body {
+    padding-top: 105px;
+  }
+  h1 {
+    font-size: 52px;
+    line-height: 1.19;
+  }
+  h2 {
+    font-size: 42px;
+    line-height: 1.29;
+  }
+  h3 {
+    font-size: 28px;
+    line-height: 1.36;
+  }
+  h4 {
+    font-size: 24px;
+    line-height: 1.5;
+  }
+  h5 {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  h6 {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  p {
+    font-size: 16px;
+    line-height: 2.33;
+  }
+  p.large {
+    font-size: 18px;
+    line-height: 2.25;
+  }
+  p.subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1;
+  }
+  p.strong {
+    font-size: 14px;
+    line-height: 1;
+  }
+  p.small {
+    font-size: 14px;
+    line-height: 1.71;
+  }
+  p.italic {
+    font-size: 14px;
+    line-height: 1.43;
+  }
+  p.label {
+    font-size: 16px;
+    line-height: 1.38;
+  }
+  p.input-label {
+    font-size: 12px;
+    line-height: 1;
+  }
+  blockquote {
+    padding-left: 40px;
+  }
+}
+
+@include desktop-lowres() {
+  body {
+    padding-top: 150px;
+  }
+}

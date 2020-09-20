@@ -1,0 +1,131 @@
+@import './global-styles/font-families';
+@import './global-styles/colors';
+
+.form-input {
+  position: relative;
+  display: block;
+  font-family: $textFont;
+
+  &__input {
+    width: 100%;
+    height: auto;
+    min-height: 66px;
+    margin: 0;
+    padding: 0 22px;
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    outline: none;
+    color: $primary;
+
+    &:focus {
+      border: 1px solid $primary;
+    }
+  }
+
+  &__floating-label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+    height: auto;
+    padding: 0 7px;
+    font-size: 14px;
+    color: $body-copy;
+    background-color: $white;
+    transition: 0.2s ease all;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  input:focus ~ .form-input__floating-label,
+  input:not(:focus):valid ~ .form-input__floating-label{
+    top: -4px;
+    transform: translateY(0);
+    left: 15px;
+    font-size: 12px;
+    opacity: 1;
+    color: $primary;
+  }
+
+  textarea {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 177px;
+    margin: 0;
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid #d8deed;
+    border-radius: 4px;
+    color: $primary;
+    outline: none;
+    resize: vertical;
+
+    &:focus {
+      border: 1px solid $primary;
+    }
+
+    & ~ .form-input__floating-label {
+      top: 16px;
+    }
+
+    &:focus ~ .form-input__floating-label,
+    &:not(:focus):valid ~ .form-input__floating-label {
+      top: 0;
+      font-size: 12px;
+    }
+  }
+
+  &--error {
+    .form-input__input {
+      border-color: $red;
+    }
+    .form-input__floating-label {
+      color: $red;
+    }
+
+    input:focus ~ .form-input__floating-label,
+    input:not(:focus):valid ~ .form-input__floating-label {
+      color: $red;
+    } 
+
+    textarea {
+      border-color: $red;
+      &::placeholder {
+        color: $red;
+      }
+      &:focus {
+        border-color: $red;
+      }
+    }
+  }
+
+  &__error-msg {
+    position: absolute;
+    left: 20px;
+    bottom: -6px;
+    transform: translateY(100%);
+    font-size: 12px;
+    line-height: 1;
+    color: $red;
+  }
+
+  // Removing number increment from input[number]
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+}

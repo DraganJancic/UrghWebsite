@@ -1,0 +1,106 @@
+@import './global-styles/media-mixins';
+@import './global-styles/colors';
+
+.error-popup {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: calc(100% - 48px);
+  max-width: 448px;
+  padding: 24px 24px 36px;
+  transform: translate(-50%, 50%);
+  background: $white;
+  border: 1px solid $grey-light;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px 0 rgba(98, 155, 249, 0.2);
+  z-index: 999;
+
+  &__close-btn {
+    position: absolute;
+    display: block;
+    height: 16px;
+    width: 16px;
+    top: 16px;
+    right: 16px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+
+    &::before, &::after {
+      position: absolute;
+      display: block;
+      content: '';
+      height: 18px;
+      width: 2px;
+      top: 50%;
+      left: 50%;
+      background-color: $primary;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  &__content {
+    &-image-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 62px;
+      width: 62px;
+      margin-bottom: 21px;
+      background-color: $grey-light;
+      border: 1px solid $border-color;
+      border-radius: 100%;
+    }
+
+    &-image {
+      display: inline-block;
+      height: auto;
+      width: 30px;
+    }
+
+    &-title {
+      margin-bottom: 6px;
+    }
+
+    &-message {
+      font-size: 14px;
+      line-height: 1.71;
+    }
+  }
+}
+
+@include tablet() {
+  .error-popup {
+    padding: 28px 60px 36px 24px;
+
+    &__content {
+      display: grid;
+      grid-template-columns: [first] 62px [second] 1fr [third] 282px [last];
+      grid-template-rows: [first] auto [second] auto [third] auto [last];
+
+      &-image-wrapper {
+        margin-bottom: 0;
+        grid-column: first / last ;
+        grid-row: first / last ;
+      }
+
+      &-title {
+        grid-column: third / last ;
+        grid-row: first / second ;
+        margin-bottom: 4px;
+      }
+  
+      &-message {
+        grid-column: third / last ;
+        grid-row: second / third ;
+      }
+    }
+  }
+}

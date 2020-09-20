@@ -1,0 +1,133 @@
+@import './global-styles/colors';
+@import './global-styles/font-families';
+@import './global-styles/layout-mixins';
+@import './global-styles/media-mixins';
+
+.single-news {
+  padding: 20px 0 60px;
+  
+  &__default-img {
+    width: 100%;
+  }
+  &__default-img,
+  &__featured-img {
+    height: 212px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+  }
+  p.small {
+    line-height: 1;
+  }
+  &__date { 
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+
+
+    &::before {
+      display: block;
+      content: '';
+      width: 6px;
+      height: 6px;
+      margin-right: 5px;
+      border-radius: 50%;
+      background-color: $orange;
+    }
+  }
+  &__title {
+    margin-bottom: 10px;
+  }
+  &__content {
+    p {
+      margin-bottom: 40px;
+      line-height: 1.88;
+    }
+    .wp-caption {
+      width: 100% !important;
+      margin: 0 0 40px 0;
+    }
+    .gatsby-image-wrapper {
+      display: flex;
+      width: 100% !important;
+      border-radius: 12px;
+    }
+    .wp-caption-text {
+      margin-top: 5px;
+      font-size: 14px;
+      line-height: 1.43;
+      font-family: $textFont;
+      font-style: italic;
+      color: $body-copy;
+    }
+  }
+}
+
+@include tablet() {
+  .single-news {
+    padding: 30px 0 80px;
+
+    &__default-img,
+    &__featured-img {
+      height: 280px;
+      margin-bottom: 25px;
+    }
+    &__title {
+      margin-bottom: 20px;
+    }
+    &__content {
+      p {
+        margin-bottom: 40px;
+        line-height: 1.88;
+      }
+      .gatsby-image-wrapper {
+        height: 280px;
+      }
+      .wp-caption-text {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+@include desktop-lowres() {
+  .single-news {
+    padding: 40px 0 100px;
+
+    &__post {
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+    }
+    &__default-img,
+    &__featured-img {
+      width: 100%;
+      height: 390px;
+      margin-bottom: 35px;
+    }
+    &__title {
+      margin-bottom: 30px;
+    }
+    &__main-content {
+      max-width: 650px;
+      margin-right: 60px;
+      order: 2;
+      // Modifier for articles
+      &--no-socials {
+        margin: 0 60px;
+      }
+    } 
+  }
+}
+
+@include desktop() {
+  .single-news {
+    padding: 40px 0 120px;
+    &__default-img,
+    &__featured-img {
+      height: 470px;
+    }
+    &__main-content {
+      max-width: 760px;
+    }
+  }
+}

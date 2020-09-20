@@ -1,0 +1,59 @@
+@import './global-styles/media-mixins';
+@import './global-styles/colors';
+
+.home-banner {
+  margin-top: 60px;
+  &__wrapper {
+    display: flex;
+    height: 72.3vw;
+  }
+  &__link {
+    display: flex;
+    width: 100%;
+  }
+  &__image {
+    width: 100% !important;
+    height: 72.3vw !important;
+    border: solid 3px $white;
+    border-radius: 12px;
+  }
+}
+
+@include tablet() {
+  .home-banner {
+    margin-top: 80px;
+    &__wrapper {
+      height: 10.7vw;      
+    }
+    &__image {
+      height: 10.7vw !important;
+      border-radius: 8px;
+    }
+  }
+}
+
+@include desktop-lowres() {
+  .home-banner {
+    margin-top: 120px;
+    &__wrapper {
+      margin: 0 auto;
+      height: 125px;
+    }
+    &__image {
+      border-radius: 12px;
+      height: 125px !important;
+    }
+  }
+}
+
+@include desktop() {
+  .home-banner {
+    margin-top: 140px;
+    &__wrapper {
+      height: 150px;
+    }
+    &__image {
+      height: 150px !important;
+    }
+  }
+}

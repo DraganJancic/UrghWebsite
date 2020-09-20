@@ -1,0 +1,324 @@
+@import '../components/global-styles/layout-mixins';
+@import '../components/global-styles/media-mixins';
+@import '../components/global-styles/colors';
+@import '../components/global-styles/font-families';
+
+.main-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  top: -60px;
+  padding: 0 24px;
+  height: 120px; 
+  background-color: $white;
+  border-bottom: 1px solid $border-color;
+  transition: 0.5s;
+  z-index: 100;
+  &--menu-open {
+    overflow: hidden;
+    .main-header__wrapper {
+      opacity: 0;
+    }
+  }
+  &--closed {
+    overflow: unset;
+    .main-header__wrapper {
+      opacity: 1;
+    }
+  }
+  &__cont-wrapper {
+    height: 100%;
+    position: relative;
+    transition: 0.5s;
+    top: 0;
+    &--open {
+      top: 60px;
+    }
+  }
+  &__search-bar {
+    position: relative;
+    display: flex;
+    height: 60px;
+    &-close {
+      position: relative;
+      top: 22px;
+      width: 20px;
+      height: 20px;
+      &:focus {
+        outline: none;
+      }
+      &:before,
+      &:after {
+        @include pseudo();
+        top: 8px;
+        width: 20px;
+        height: 2px;
+        background-color: $primary;
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(135deg);
+      }
+    }
+    input {
+      border: none;
+      margin-left: 20px;
+      color: $primary;
+      font-family: $textFont;
+      &::placeholder {
+        color: $primary;
+        font-family: $textFont;
+      }
+      &:active,
+      &:focus {
+        border: none;
+        outline: none;
+      }
+    }
+  }
+  &__wrapper {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.15s;
+    transition-delay: 0.16s;
+    transition-property: opacity;
+  }
+  &__search {
+    width: 18px;
+    height: 18px;
+    background-image: url('../images/search-icon.png');
+    @include bgImage();
+  }
+  &__logo {
+    width: 96px;
+    height: 40px;
+    background-image: url('../images/shi-logo-copy.png');
+    @include bgImage();
+  }
+  &__hamburger-btn {
+    position: relative;
+    width: 30px;
+    height: 2px;
+    border-radius: 1.5px;
+    background-color: $primary;
+    cursor: pointer;
+    transition: 0.5s;
+    outline: none;
+    &:before,
+    &:after {
+      @include pseudo();
+      width: 30px;
+      height: 2px;
+      border-radius: 1.5px;
+      background-color: $primary;
+      transition: 0.5s;
+
+    }
+    &:before {
+      top: -5px;
+    }
+    &:after {
+      top: 5px;
+    }
+    &--open {
+      transform: rotate(45deg);
+      &:after {
+        transform: rotate(90deg);
+        top: 0px;
+      }
+      &:before {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+@include tablet() {
+  .main-header {
+    height: 168px;
+    width: 100%;
+    padding: 0 54px;
+    &__cont-wrapper {
+      &--open {
+        top: 84px;
+      }
+    }
+    &__search-bar {
+      height: 84px;
+      display: flex;
+      align-items: center;
+      &-close {
+        top: 2px;
+      }
+      input {
+        height: 100%;
+      }
+    }
+    &__logo {
+      width: 120px;
+      height: 50px;
+    }
+  }
+}
+
+@include desktop-lowres() {
+  .main-header {
+    position: fixed;
+    max-width: 100%;
+    width: 100%;
+    top: 0;
+    height: 152px;
+    display: grid;
+    padding: 0px;
+    border-bottom: 1px solid $border-color;
+    transition: 0.5s;
+    &--small {
+      height: 82px;
+    }
+    &__wrapper {
+      width: 100%;
+      flex-flow: column;
+    }
+    &__logo {
+      margin-top: 22px;
+      width: 150px;
+      height: 62px;
+      order: 2;
+      display: block;
+      justify-self: center;
+      transition: 0.5s;
+    }
+    &__secondary-header {
+      width: 100%;
+      position: relative;
+      transition: 0.5s;
+      top: 0;
+      &--hidden {
+        top: -50px;
+      }
+    }
+    &__primary-header {
+      position: relative;
+      width: 100%;
+      height: 106px;
+      z-index: 200;
+      top: 0;
+      transition: 0.5s;
+      &--hidden {
+        top: -50px;
+        height: 80px;
+        .main-header__logo {
+          width: 100px;
+          height: 40px;
+        }
+        .primary-menu {
+          padding-left: 0;
+        }
+        .main-header__search-wrap {
+          height: 122px;
+          transition: 0.5s;
+        }
+        .mega-menu {
+          &:hover {
+            .sub-mega-menu {
+              top: 83px;
+            }
+          }
+        }
+        .default-menu {
+          &:hover {
+            .default-sub-menu {
+              top: 88px;
+            }
+          }
+        }
+
+      }
+      &-wrapper {
+        height: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 150px auto 180px;
+        .primary-menu {
+          order: 2;
+          transition: 0.5s;
+        }
+      }
+    }
+    &__search {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      order: 4;
+      background-image: none;
+      overflow: hidden;
+      &-wrap {
+        position: relative;
+        top: -68px;
+        display: flex;
+        flex-flow: column;
+        align-items: flex-end;
+        width: 100%;
+        height: 212px;
+        transition: 0.5s;
+        &--open {
+          top: -1px;
+        } 
+      }
+      &-bar {
+        flex-flow: row-reverse;
+        align-items: center;
+        height: 106px;
+        &-close {
+          right: 0px;
+          top: 0;
+          cursor: pointer;
+        }
+      }
+      &-icon {
+        position: relative;
+        height: 106px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        &:focus {
+          outline: none;
+        }
+        &:after {
+          content: '';
+          position: absolute;
+          right: 0;
+          top: calc(50% - 9px);
+          width: 18px;
+          height: 18px;
+          background-image: url('../images/search-icon.png');
+          @include bgImage();
+        }
+      }
+    }
+  }
+}
+
+
+@include desktop() {
+  .main-header {
+    &__primary-header {
+      &-wrapper {
+        max-width: 1200px;
+        grid-template-columns: 150px auto 200px;
+
+      }
+    }
+    &__search-bar {
+      &-close {
+      }
+    }
+  
+  }  
+}

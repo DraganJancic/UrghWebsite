@@ -1,0 +1,31 @@
+@import '../components/global-styles/layout-mixins';
+@import '../components/global-styles/media-mixins';
+@import '../components/global-styles/colors';
+
+.menu {
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+  left: 200vw;
+  top: 121px;
+  min-height: calc(100vh - 60px);
+  height: 100%;
+  min-width: 100vw;
+  transition: 0.4s;
+  background-color: $white;
+  overflow-y: scroll;
+  z-index: 100;
+  &--open {
+    left: -24px;
+  }
+}
+
+@include tablet() {
+  .menu {
+    top: 168px;
+    width: calc(100% + 108px);
+    &--open {
+      left: -54px;
+    }
+  }
+}

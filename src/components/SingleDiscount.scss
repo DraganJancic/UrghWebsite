@@ -1,0 +1,105 @@
+@import './global-styles/media-mixins';
+@import './global-styles/font-families';
+@import './global-styles/colors';
+@import './global-styles/layout-mixins';
+
+.single-discount {
+  margin-bottom: 20px;
+  border-radius: 12px;
+  background-color: $white;
+  &__content {
+    padding: 30px 26px;
+    h4 {
+      margin-bottom: 8px;
+    }
+  }
+  &__text {
+    margin-bottom: 40px;
+    line-height: 1.88;
+  }
+  .strong {
+    position: relative;
+    padding-left: 30px;
+    &:before {
+      @include pseudo();
+      @include pseudo-icon('../images/pin.svg', 20px, 20px);
+      left: 0;
+      top: -3px;
+
+    }
+
+  }
+  &__image {
+    width: 100%;
+    height: 180px;
+    @include bgImage();
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    &:before,
+    &:after {
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+  }
+
+}
+
+
+@include tablet() {
+  .single-discount {
+    padding: 40px;
+    &__image {
+      height: 240px;
+    }
+    &__content {
+      padding: 30px 0 20px;
+    }
+    &__text {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+@include desktop-lowres() {
+  .single-discount {
+    min-width: 698px;
+    max-width: 698px;;
+    margin-bottom: 80px;
+    min-height: 260px;
+    padding: 0;
+    position: relative;
+    &__image {
+      position: absolute !important;
+      left: -50px;
+      top: -30px; 
+      width: 261px;
+      height: 202px;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 30px 45px 0 rgba(98, 155, 249, 0.15);
+      &:before,
+      &:after {
+        border-radius: 12px;
+      }
+    }
+    &__content {
+      padding: 42px 55px 50px 260px;
+    }
+    &__text {
+      margin-bottom: 40px;
+    }
+  }
+}
+@include desktop() {
+  .single-discount {
+    width: 830px;
+    margin-bottom: 90px;
+    &__image {
+      width: 310px;
+      height: 240px;
+    }
+    &__content {
+      padding: 42px 55px 50px 310px;
+    }
+  }
+}

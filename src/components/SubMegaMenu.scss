@@ -1,0 +1,149 @@
+@import '../components/global-styles/colors';
+@import '../components/global-styles/layout-mixins';
+@import '../components/global-styles/media-mixins';
+@import '../components/global-styles/font-families';
+
+.sub-mega-menu {
+  position: relative;
+  opacity: 0;
+  max-height: 0;
+  transition:  0.4s ease-out;
+  &--open {
+    margin: 30px 0 0;
+    max-height: 5000px;
+    opacity: 1;
+    transition:  0.4s ease-in;
+
+  }
+  .mega-menu-item {
+    position: relative;
+    min-height: 62px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 62px;
+    &__link {
+      margin-bottom: 20px;
+      font-family: $textFont;
+      font-size: 18px;
+      font-weight: bold;
+      color: $primary;
+      
+    }
+
+  }
+  .menu-item-icon {
+    position: relative;
+    width: 100%;
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      left: -48px;
+    }
+    &:before {
+      width: 22px;
+      height: 22px;
+      @include bgImage();
+
+    }
+    &:after {
+      content: '';
+      top: -13px;
+      left: -60px;
+      width: 46px;
+      height: 46px;
+      background-color: rgba(98,155,249,0.1);
+      border-radius: 50%;
+      
+    }
+    &--loans {
+      &:before {
+        background-image: url('../images/loan.png');
+      }
+      
+    }
+    &--rights {
+      &:before {
+        background-image: url('../images/fist.png');
+      }
+
+    }
+    &--information {
+      &:before {
+        background-image: url('../images/info.png');
+      }
+
+    }
+  }
+}
+
+
+@keyframes openMegaMenu {
+  from {
+    height: 1%;
+    opacity: 0;
+  }
+  to {
+    height: 100px;
+    opacity: 1;
+  }
+}
+//Sub menu of mega menu 
+.mega-child-menu {
+  display: flex;
+  flex-flow: column;
+  margin-top: 17px;
+  margin-bottom: 20px;
+  a {
+    margin: 13px 0;
+    font-family: $textFont;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 0.94;
+    color: $body-copy;
+  }
+}
+
+@include desktop-lowres() {
+  .sub-mega-menu {
+    position: fixed;
+    left: calc(50% - 445px);
+    top: 250px;
+    display: flex;
+    height: 100%;
+    min-height: 290px;
+    min-width: 890px;
+    max-width: 890px;
+    width: 100%;
+    padding: 40px 50px;
+    opacity: 1;
+    background-color: $white;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px 0 rgba(98, 155, 249, 0.2);
+    transition: top ease 300ms, opacity ease 300ms;
+    z-index: -10;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .mega-menu {
+    &:hover {
+      .sub-mega-menu {
+
+        top: 153px;
+        opacity: 1;
+        visibility: visible;
+        z-index: 10;
+
+        &:hover {
+          top: 153px;
+          opacity: 1;
+          visibility: visible;
+        }
+
+      }
+    }
+  }
+
+}

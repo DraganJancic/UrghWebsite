@@ -1,0 +1,92 @@
+@import './global-styles/media-mixins';
+@import './global-styles/font-families';
+@import './global-styles/colors';
+@import './global-styles/layout-mixins';
+
+.single-organisation {
+  max-width: 100%;
+  min-height: 236px;
+  height: 100%;
+  margin-bottom: 20px;
+  padding: 36px 38px;
+  border-radius: 12px;
+  box-shadow: 0 22px 36px 0 rgba(98, 155, 249, 0.12);
+  background-color: $white; 
+  .gatsby-image-wrapper {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 16px;
+    border-radius: 50%;
+    border: 10px solid rgba(98,155,249, 0.1);
+  }
+  &__letter-img {
+    width: 60px;
+    height: 60px;
+    @include flexRowCenter();
+    margin-bottom: 16px;
+    font-family: $titleFont;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.6;
+    letter-spacing: normal;
+    text-align: center;
+    color: $primary;
+
+    border-radius: 50%;
+    border: 10px solid rgba(98,155,249, 0.1);
+  }
+  &__infos {
+    display: flex;
+    flex-flow: column;
+    margin-top: 34px;
+    a {
+      text-decoration: none;
+      color: $body-copy;
+    }
+  }
+  &__email {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 14px;
+    &:before {
+      @include pseudo();
+      @include email-icon('../images/email-blue.svg');
+      left: 0;
+      top: 3px;
+    }
+  }
+  &__phone {
+    position: relative;
+    padding-left: 24px;
+    &:before {
+      @include pseudo();
+      @include email-icon('../images/phone.svg');
+      left: 0;
+      top: 3px;
+    }
+  }
+}
+
+@include tablet() {
+  .single-organisation {
+    max-width: 48%;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+  }
+}
+
+@include desktop-lowres() {
+  .single-organisation {
+    max-width: 32%;
+    width: 100%;
+    margin-right: 18px;
+    &:nth-child(3n+3) {
+      margin-right: 0px;
+    }
+  }
+}

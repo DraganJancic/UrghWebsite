@@ -1,0 +1,140 @@
+@import './global-styles/media-mixins';
+@import './global-styles/colors';
+
+.slider {
+  padding-bottom: 40px;
+  &__wrapper {
+    position: relative;
+    height: 72.3vw;
+  }
+  &__link {
+    position: absolute;
+    top: 0%;
+    left: 24px;
+    height: 72.3vw;
+    opacity: 0;
+    width: calc(100% - 48px);
+    &--active {
+      animation: start 6s infinite;
+      animation-timing-function: ease-in;
+      z-index: 10;
+    }
+    &--was-active {
+      animation: end 5s infinite;
+      animation-timing-function: ease-out;
+      z-index: 1;
+    }
+    &-img {
+      height: 72.3vw !important;
+      width: 100% !important;
+      border: solid 3px $white;
+      border-radius: 12px;
+    }
+    a {
+      display: flex;
+    }
+  }
+  &__svg {
+    position: absolute;
+    right: -245px;
+    bottom: -210px;
+    z-index: -20;
+    width: 400px;
+    height: auto;
+  }
+}
+
+@include tablet() {
+  .slider {
+    padding-bottom: 60px;
+    &__wrapper {
+      height: 10.7vw;
+    }
+    &__link {
+      height: 10.7vw;
+      margin-bottom: -3px;
+      left: 54px;
+      width: calc(100% - 108px);
+      &-img {
+        height: 10.7vw !important;
+        border-radius: 8px;
+      }
+    }
+    &__svg {
+      bottom: -310px;
+      right: -290px;
+      width: 500px;
+    }
+  }
+}
+
+@include desktop-lowres() {
+  .slider {
+    padding-bottom: 80px;
+    &__wrapper {
+      height: 125px;
+    }
+    &__link {
+      height: 125px;
+      width: 100%;
+      left: 0;
+      &-img {
+        height: 125px !important;
+        border-radius: 12px;
+      }
+    }
+    &__svg {
+      top: -93%;
+      right: -42%;
+      width: 600px;
+    }
+  }
+}
+
+@include desktop() {
+  .slider {
+    &__wrapper {
+      height: 150px;
+    }
+    &__link {
+      left: 0%;
+      height: 150px;
+      width: 100%;
+      &-img {
+        height: 150px !important;
+      }
+    }
+    &__svg {
+      top: -85%;
+      right: -40%;
+      width: 750px;
+    }
+  }
+}
+
+@keyframes start {
+  0%{
+    opacity: 0.1;
+  }
+  15%{
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes end {
+  0%{
+    opacity: 1;
+  }
+
+  85%{
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

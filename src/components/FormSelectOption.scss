@@ -1,0 +1,111 @@
+@import './global-styles/font-families';
+@import './global-styles/colors';
+
+.custom-select {
+  position: relative;
+
+  &__header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    min-height: 66px;
+    padding: 0 22px;
+    font-family: $textFont;
+    font-size: 14px;
+    background: $white;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    outline: none;
+    font-weight: bold;
+    color: $primary;
+
+    &:focus {
+      border: 1px solid $primary;
+    }
+  }
+
+  &__list-wrapper {
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transform: translateY(100%);
+    width: 100%;
+    box-shadow: 0 8px 32px 0 rgba(98, 155, 249, 0.2);
+    z-index: 4;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    background: $white;
+    box-sizing: border-box;
+
+    &-item {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      min-height: 60px;
+      padding: 0 22px;
+      list-style: none;
+      font-family: $textFont;
+      font-size: 14px;
+      font-weight: bold;
+      color: $primary;
+
+      &--gray {
+        background-color: $grey-light;
+      }
+
+      &--selected {
+        background-color: $grey-light;
+      }
+    }
+  }
+
+  &__label {
+    height: auto;
+    position: absolute;
+    display: inline-block;
+    pointer-events: none;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.2s ease all;
+    background-color: $white;
+    font-family: $textFont;
+    font-size: 14px;
+    z-index: 9;
+    padding: 0 7px;
+    color: $body-copy;
+    
+    &--up {
+      top: -4px;
+      transform: translateY(0);
+      font-size: 12px;
+    }
+  }
+  
+  &--error {
+    .custom-select__header{
+      border-color: $red;
+      &:focus {
+        border-color: $red;
+      }
+    }
+
+    .custom-select__label {
+      color: $red;
+    }
+  }
+
+  &__error-msg {
+    position: absolute;
+    left: 20px;
+    bottom: -6px;
+    transform: translateY(100%);
+    font-size: 12px;
+    line-height: 1;
+    color: $red;
+  }
+}

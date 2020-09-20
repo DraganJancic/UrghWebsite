@@ -1,0 +1,85 @@
+@import './global-styles/media-mixins';
+@import './global-styles/font-families';
+@import './global-styles/colors';
+@import './global-styles/layout-mixins';
+
+
+.latest-news {
+  h3 {
+    max-width: 80%;
+    text-align: center;
+    margin: 60px auto 30px;
+  }
+  &__item {
+    max-width: 100%;
+    margin-bottom: 40px;
+    &-image {
+      width: 100%;
+      height: 212px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+  } 
+  &__link {
+    text-align: center;
+    margin: 20px 0 60px;
+  }
+}
+
+@include tablet() {
+  .latest-news {
+    h3 {
+      margin: 60px auto 50px;
+    }
+    &__item {
+      width: 48%;
+      &-wrapp {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      &:last-of-type {
+        display: none;
+      }
+      &-image {
+        height: 30vw;
+      }
+    }
+    &__link {
+      margin: 40px 0 60px;
+    }
+  }
+}
+
+@include desktop-lowres() {
+  .latest-news {
+    h3 {
+      margin: 90px auto 50px;
+    }
+    &__item {
+      width: 32%;
+      &:last-of-type {
+        display: block;
+      }
+      &-image {
+        height: 218px;
+      }
+    }
+    &__link {
+      margin: 52px 0 60px;
+    }
+  }
+}
+
+@include desktop() {
+  .latest-news {
+    &__item {
+      &-image {
+        height: 260px;
+      }
+    }
+    &__link {
+      margin: 40px 0 60px;
+    }
+  }
+}

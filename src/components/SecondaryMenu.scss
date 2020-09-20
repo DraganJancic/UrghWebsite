@@ -1,0 +1,52 @@
+@import '../components/global-styles/media-mixins';
+@import '../components/global-styles/layout-mixins';
+@import '../components/global-styles/font-families';
+@import '../components/global-styles/colors';
+
+.sec-menu {
+  padding: 0 5%;
+  &__wrapper {
+    padding: 36px 30px;
+    display: flex;
+    flex-flow: column;
+    background-color: $grey-light;   
+    border-radius: 8px;
+    a {  
+      margin-bottom: 26px;
+      font-family: $textFont;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 0.94;
+      color: $body-copy;
+      text-decoration: none;
+      &:last-of-type {
+        margin-bottom: 0px;
+
+      }
+    }
+  }
+}
+
+@include desktop-lowres() {
+  .sec-menu {
+    padding: 0;
+    &__wrapper {
+      padding: 0;
+      height: 46px;
+      flex-flow: row;
+      justify-content: flex-end;
+      align-items: center;
+      background-color:transparent;   
+      a {
+        @include flexRowCenter();
+        height: 100%;
+        margin-bottom: 0;
+        margin-right: 24px;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1;
+        color: $grey;
+      }
+    }
+  }
+}

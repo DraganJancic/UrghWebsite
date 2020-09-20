@@ -1,0 +1,100 @@
+@import './global-styles/media-mixins';
+@import './global-styles/font-families';
+@import './global-styles/colors';
+@import './global-styles/layout-mixins';
+
+.pagination {
+  display: flex;
+  margin: 0 auto 60px;
+  justify-content: center;
+  input {
+    -moz-appearance: textfield;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  &__nav {
+    display: flex;
+    align-items: center;
+    margin: 0 6px;
+    padding: 0 6px;
+    width: 100px;
+    height: 46px;
+    border-radius: 4px;
+    background-color: $grey-light;
+    font-family: $textFont;
+    font-size: 16px;
+    font-weight: bold;
+
+    input {
+      min-width: 49px;
+      max-width: 49px;
+      max-height: 34px;
+      height: 100%;
+      font-weight: bold;
+      border-radius: 4px;
+      border: solid 1px $border-color;
+      background-color: $white;
+      text-align: center;
+      &::placeholder {
+        font-weight: bold;
+        text-align: center;
+        color: $primary;
+        @include flexRowCenter();      
+
+      }
+    }
+    &-total {
+      width: 100%;
+      @include flexRowCenter();      
+    }
+  }
+  &__box {
+    position: relative;
+    width: 46px;
+    height: 46px;
+    border-radius: 4px;
+    background-color: $grey-light;
+    &--prev {
+      &:before {
+        @include pseudo();
+        @include arrowDown();
+        top: 18px;
+        left: 18px;
+        transform: rotate(145deg);
+      }
+      &-unactive {
+        background-color: $grey-light;
+        pointer-events: none;
+        &:before {
+          opacity: 0.2;
+          @include arrowDown();
+        transform: rotate(145deg);
+
+        }
+      }
+    }
+    &--next {
+      background-color: $blue;
+      &:before {
+        @include pseudo();
+        @include arrowDown($white);
+        top: 18px;
+        left: 18px;
+        transform: rotate(-45deg);
+
+      }
+      &-unactive {
+        background-color: $grey-light;
+        pointer-events: none;
+        &:before {
+          opacity: 0.2;
+          @include arrowDown();
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}

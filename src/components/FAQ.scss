@@ -1,0 +1,141 @@
+@import './global-styles/media-mixins';
+@import './global-styles/colors';
+@import './global-styles/layout-mixins';
+
+
+.faq {
+  &__header {
+    padding: 40px 0 60px;
+    h2 {
+      margin-bottom: 10px;
+    }
+  }
+  &__infos {
+    h5 {
+      margin-bottom: 20px;
+    }
+    &-card {
+      position: relative;
+      padding: 30px 24px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      &:after,
+      &:before {
+        @include pseudo();
+        background-color: $blue;
+        
+      }
+      &:before {
+        right: 24px;
+        top: 36px;
+        width: 14px;
+        height: 2px;
+      }
+      &:after {
+        right: 30px;
+        top: 30px;
+        width: 2px;
+        height: 14px;
+        transition: 0.4s;
+      }
+      &-text {
+        height: 100%;
+        max-height: 0px;
+        opacity: 0;
+        transition: 0.5s;
+      }
+      h6 {
+        max-width: 80%;
+        margin-bottom: 0px;
+        transition: 0.6s;
+      }
+      
+      &--open {
+        background-color: $white;
+        box-shadow: 0 8px 32px 0 rgba(98, 155, 249, 0.2);
+        &:after {
+          transform: rotate(90deg);
+        }
+        h6 {
+          margin-bottom: 35px;
+        }
+        .faq__infos-card-text {
+          max-height: 600px;
+          height: 100%;
+          opacity: 1;
+        }
+      }
+      &--closed {
+        background-color: $grey-light;
+      }
+    }
+  }
+  &__cant-find {
+    padding: 40px 0 60px;
+    h3 {
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      margin-bottom: 30px;
+    }
+    .cta-with-pseudo {
+      width: 196px;
+      z-index: 10;
+    }
+  }
+}
+
+@include tablet() {
+  .faq {
+    &__header {
+      padding: 60px 0;
+    }
+    &__infos {
+      &-card {
+        padding: 35px 30px;
+        &-text {
+          padding: 0 15px;
+        }
+      }
+      &-group {
+        margin-bottom: 60px;
+      }
+    }
+    &__cant-find {
+      padding: 20px 0 80px;
+      .subtitle {
+        margin-bottom: 50px;
+      }
+    }
+  } 
+}
+
+@include desktop-lowres() {
+  .faq {
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    &__content {
+      width: 748px;
+    }
+    &__header {
+      padding: 60px 0 80px;
+    }
+    &__infos {
+      h5 {
+        margin-bottom: 30px;
+      }
+      &-group {
+        margin-bottom: 80px;
+      }
+    }
+    &__cant-find {
+      h3 {
+        margin-bottom: 20px;
+      }
+      padding: 20px 0 100px;
+    }
+  }
+}
