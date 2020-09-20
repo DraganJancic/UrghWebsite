@@ -33,6 +33,7 @@ export default function ContactMapSection({ data }) {
           <h2 className="contact-map-section__details-title">{sectionTitle}</h2>
           <p>Testing build caching with paragraph.</p>
           <p>Testing build caching with second paragraph.</p>
+          <p>Testing build caching with third paragraph.</p>
           {
             Object.entries(contactDetails).map(([name, value], index) => {
               return (
