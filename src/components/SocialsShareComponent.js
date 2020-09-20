@@ -17,7 +17,7 @@ import './SocialsShareComponent.scss'
 export default function SocialsShareComponent({ title, language, postSlugTranslationName, slug }) {
 
   // A temporary URL that we can/should replace with a live URL when they provide it
-  const url = 'http://student.jldevelopment.is';
+  const url = 'https://urghwebsite.netlify.app';
 
   return (
     <div className="socials-share">
