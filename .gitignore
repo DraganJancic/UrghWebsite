@@ -1,0 +1,11 @@
+# Project dependencies
+node_modules
+.env
+.cache/
+# Build directory
+public/
+static/admin/*.bundle.*
+.DS_Store
+.idea
+yarn-error.log
+package-lock.json

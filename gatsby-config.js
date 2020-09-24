@@ -37,7 +37,7 @@ module.exports = {
          * The full URL of the WordPress site's GraphQL API.
          * Example : 'https://www.example-site.com/graphql'
          */
-        url: process.env.GATSBY_BACKEND_URL || `http://netlify-test.jonssonlemacks.com/graphql`,
+        url: process.env.GATSBY_WP_URL,
       },
     },
     {
