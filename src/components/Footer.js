@@ -30,7 +30,7 @@ export default function Footer({ menuData, language, footerOptionsPage }) {
   return (
     <footer className="footer">
       <div className="footer__wrapper content-wrapper">
-        <FooterMenuItem languageMenu={languageMenu} />
+        <FooterMenuItem languageMenu={languageMenu} locale={locale}/>
         <FooterContact contactFooter={contactFooter} locale={locale} />
       </div>
       <div className="footer__copy">

@@ -50,8 +50,9 @@ export default function FooterMenuItem({ languageMenu, locale }) {
     `}
       render={
         data => {
-          console.log('loging data: ',data)
           const menusz = data.allWpMenu.menus;
+
+          
 
           //checking which language is selected and passing adequate menu
           let languageMenuz =
@@ -70,6 +71,12 @@ export default function FooterMenuItem({ languageMenu, locale }) {
           // console.log(menusz)
 
           const { menuItems: { nodes } } = languageMenuz;
+          
+          console.log('LOGING LOCALE: ', locale)
+          console.log('LOGING DATA: ', data)
+          console.log('LOGING LANGUAGE MENUZ: ', languageMenuz)
+          console.log('LOGING NODES: ', nodes)
+
 
 
           //filtering parent elements from menu
